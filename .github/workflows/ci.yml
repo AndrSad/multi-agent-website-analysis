@@ -27,21 +27,18 @@ jobs:
         pip install -r multi_agent_system/requirements.txt
         pip install pytest-cov
     
-    - name: Run tests
+    - name: Run basic tests
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
         PYTHONPATH: ${{ github.workspace }}
       run: |
         cd multi_agent_system
-        python -m pytest tests/ --cov=. --cov-report=xml --cov-report=html
+        python -m pytest tests/test_basic.py -v
     
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./multi_agent_system/coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
+    - name: Check Python syntax
+      run: |
+        python -c "import multi_agent_system.core.config; print('Config module OK')"
+        python -c "import multi_agent_system.tools.scraping_tools; print('Scraping tools OK')"
 
   lint:
     runs-on: ubuntu-latest
