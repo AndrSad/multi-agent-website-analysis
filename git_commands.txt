@@ -1,0 +1,14 @@
+# Команды для подключения к GitHub после создания репозитория
+# Замените YOUR_USERNAME на ваш реальный GitHub username
+
+# Удалить текущий remote
+git remote remove origin
+
+# Добавить правильный remote
+git remote add origin https://github.com/YOUR_USERNAME/multi-agent-website-analysis.git
+
+# Переименовать ветку в main
+git branch -M main
+
+# Отправить код
+git push -u origin main

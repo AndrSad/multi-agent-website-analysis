@@ -29,8 +29,26 @@ pytest -q
 k6 run k6/load_test.js
 ```
 
-## Docker
-См. Dockerfile и docker-compose.yml.
+## 🐳 Docker
+
+### Быстрый запуск
+```bash
+# Сборка и запуск
+docker build -t multi-agent-analysis .
+docker run -p 5000:5000 -e OPENAI_API_KEY=your_key multi-agent-analysis
+
+# Или через Docker Compose
+docker-compose up --build
+```
+
+### Docker Hub
+```bash
+# Скачать готовый образ
+docker pull yourusername/multi-agent-analysis:latest
+docker run -p 5000:5000 -e OPENAI_API_KEY=your_key yourusername/multi-agent-analysis:latest
+```
+
+Подробная документация: [DOCKER_README.md](DOCKER_README.md)
 
 ## CI/CD
 GitHub Actions запускает тесты и проверку покрытия (>=80%).
