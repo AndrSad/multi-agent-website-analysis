@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![GitHub Actions](https://github.com/AndrSad/multi-agent-website-analysis/workflows/CI/badge.svg)](https://github.com/AndrSad/multi-agent-website-analysis/actions)
+[![GitHub Actions](https://github.com/AndrSad/multi-agent-website-analysis/workflows/Minimal%20CI/badge.svg)](https://github.com/AndrSad/multi-agent-website-analysis/actions)
 
 ## 🎯 Что это такое?
 
