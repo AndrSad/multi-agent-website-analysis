@@ -28,6 +28,8 @@ jobs:
         pip install pytest-cov
     
     - name: Run tests
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
       run: |
         cd multi_agent_system
         pytest tests/ --cov=. --cov-report=xml --cov-report=html
@@ -56,11 +58,15 @@ jobs:
         pip install black flake8
     
     - name: Run black
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
       run: |
         cd multi_agent_system
         black --check .
     
     - name: Run flake8
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
       run: |
         cd multi_agent_system
         flake8 .
@@ -81,11 +87,15 @@ jobs:
         pip install safety bandit
     
     - name: Run safety check
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
       run: |
         cd multi_agent_system
         safety check -r requirements.txt
     
     - name: Run bandit security check
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key-for-ci' }}
       run: |
         cd multi_agent_system
         bandit -r . -f json -o bandit-report.json || true
